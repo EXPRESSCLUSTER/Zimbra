@@ -7,19 +7,19 @@ This guide describes how to setup Zimbra with EXPRESSCLUSTER X.
 For the detailed information of EXPRESSCLUSTER X, please refer to [this site](https://www.nec.com/en/global/prod/expresscluster/index.html) .
 
 
-Configurations description
+Configurations Description
 ---
 In this document, create 2 nodes (Node1 and Node2 as below) mirror disk type cluster.
 Prepare Zimbra HA/DR By using EXPRESSCLUSTER X. 
 
 
-### Software versions
+### Software Versions
 - Zimbra    (Release 8.8.12_GA_3794.RHEL7_64_20190329045002 RHEL7_64 FOSS edition, Patch 8.8.12_P1 proxy)
 - CLUSTERPRO X 4.2 for Linux (internal version：4.2.0-200131-11)
 - CLPX_BASE40_Linux_lcs1      (ECX license)
 - CLPX_REPL40_Linux_lcs1      (ECX license)
 
-### Cluster configurations
+### Cluster Configurations
 - Group resources
   - exec resource
   - floting IP resource
