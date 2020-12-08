@@ -12,7 +12,7 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
 
 ## Software Versions
 - Zimbra    (Release 8.8.12_GA_3794.RHEL7_64_20190329045002 RHEL7_64 FOSS edition, Patch 8.8.12_P1 proxy)
-- EXPRESSCLUSTER X 4.2 for Linux (internal version：4.2.0-200131-11)
+- EXPRESSCLUSTER X 4.2 for Linux (internal version：4.2.0-1)
 - EXPRESSCLUSTER X license
   - EXPRESSCLUSTER X 4.2 for Linux
   - EXPRESSCLUSTER X Replicator 4.2 for Linux
@@ -47,7 +47,11 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
   Installation Steps:-
   ---
   - Download “Zimbra collaboration suite” package. Open the web browser and go to the following URL. Choose Zimbra version.
-    - [this site](http://www.zimbra.com/downloads/)
+    - [this site](https://www.zimbra.com/try/zimbra-collaboration-open-source/)
+                               OR
+  - Download the package directly by below mentioned link.
+     - [this site](wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.RHEL7_64.20190918004220.tgz)  
+      
   - Copy the package to the `/tmp` directory.
   - Extract the installation files from the `.tar` file. Right click and click on Extract here.
   - Open terminal and change the directory to the extracted folder.
