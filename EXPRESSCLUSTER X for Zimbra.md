@@ -6,14 +6,14 @@ For the detailed information of EXPRESSCLUSTER X, please refer to [this site](ht
 
 
 ## Configurations Description
-In this document, create 2 nodes (Node1 and Node2 as below) mirror disk type cluster.
+In this guide, create 2 nodes (Node1 and Node2 as below) mirror disk type cluster.
 Prepare Zimbra HA/DR By using EXPRESSCLUSTER X. 
 
 
 ## Software Versions
 - Zimbra    (Release 8.8.12_GA_3794.RHEL7_64_20190329045002 RHEL7_64 FOSS edition, Patch 8.8.12_P1 proxy)
 - EXPRESSCLUSTER X 4.2 for Linux (internal version：4.2.0-1)
-- EXPRESSCLUSTER X license
+- EXPRESSCLUSTER X licenses
   - EXPRESSCLUSTER X 4.2 for Linux
   - EXPRESSCLUSTER X Replicator 4.2 for Linux
 
@@ -30,10 +30,10 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
 
 ## Zimbra Prerequisites and Installation Procedure
 - System Requirements for Zimbra 
-  - Please refer and check to [this site](https://wiki.zimbra.com/wiki/Zimbra_Releases/8.8/Supported_Systems) 
+  - Please refer to [this site](https://wiki.zimbra.com/wiki/Zimbra_Releases/8.8/Supported_Systems) 
 
 - Please note that the following points are different if you will set Zimbra to EXPRESSCLUSTER.
-  - All zimbra configuration and database {`/opt/zimbra`} file will be present in the mirror disk.
+  - All zimbra configuration and database (`/opt/zimbra`) file will be present in the mirror disk.
   - To completely disable SELinux on CentOS, open `/etc/selinux/config` file with a text editor and set the line SELINUX to disabled.
   - Firewall should be in closed state. 
 
@@ -41,18 +41,14 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
 ## Zimbra Installation Procedure
 
 ### 1. Install Zimbra (New Installation) on the both servers.
-- Please do the Installation 
+
 - For the detailed information of Zimbra, please refer to [this site](https://wiki.zimbra.com/wiki/Zimbra_Releases/8.7.0/Single_Server_Installation)
     
-  Installation Steps:-
-  ---
-  - Download “Zimbra collaboration suite” package. Open the web browser and go to the following URL. Choose Zimbra version.
-    - [this site](https://www.zimbra.com/try/zimbra-collaboration-open-source/)
+  - Download “Zimbra collaboration suite” package. Open the web browser and go to [this site](https://www.zimbra.com/try/zimbra-collaboration-open-source/). Choose Zimbra version.
                              
 	OR
 			      
-  - Download the package directly by below mentioned link.
-     - [this link](https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.RHEL7_64.20190918004220.tgz)  
+  - Download the package directly by [this link](https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.RHEL7_64.20190918004220.tgz).
       
   - Copy the package to the `/tmp` directory.
   - Extract the installation files from the `.tar` file. Right click and click on Extract here.
@@ -60,10 +56,10 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
     ```
     root@mail-1 ~> cd /tmp/zcs-8.X.XXXXXXXXXXX
     ```
-   - Run the `install.sh` file from the zimbra extracted folder
-  
-            ./install.sh
-
+  - Run the `install.sh` file from the zimbra extracted folder
+    ```
+    root@mail-1 ~> ./install.sh
+    ```
   - Press Y and Enter to accept the terms of the license agreement
   - As this package is for RHEL so there will be a warning message. Press Y and Enter to continue.
   - Press Enter on all the packages with their default install options
@@ -79,8 +75,7 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
   - Press Enter to complete the configuration.
 
 
-  NOTE - 
-  ---
+  **NOTE:**
   - If you are doing Zimbra fresh Installation make sure you should be install Zimbra on mirror disk partition.
   - After Zimbra Installation you need to take backup of zimbra files as below steps.
     - Firstly stop the zimbra service on server. 
@@ -111,10 +106,10 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
 
 
 ### 3. Zimbra Existing installation:
-- In this case Zimbra is already installed in default disk and have to move data on the mirror partition
+In this case Zimbra is already installed in default disk and have to move data on the mirror partition
 
-  On Primary server:-
-  ---
+#### On Primary server:
+
   - Firstly stop the zimbra service on server. 
     ```
     systemctl stop zimbra
@@ -126,30 +121,29 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
   - If any of the Zimbra processes are running then 
         use kill command to end the processes.
 
-  NOTE :-
-  ---
+  **NOTE:**
   - The Zimbra backup data must be available before performing this activity.
   - After backup change the zimbra directory name.
     - example :- `/opt/zimbraold` {New name of the Zimbra directory}
   - Run the following command to copy the existing Zimbra files to mirror disk location: 
     ```
-	  rsync -axvzKHS --progress /opt/zimbraold/* /opt/zimbra
+	rsync -axvzKHS --progress /opt/zimbraold/* /opt/zimbra
     ```
   - Run the bellow command to fix permission for all the files:
     ```
-	  /opt/zimbra/libexec/zmfixperms  -e  -v
+	/opt/zimbra/libexec/zmfixperms  -e  -v
     ```
   - After the copy is successful, start the Zimbra services by running the following command to verify that the copy has been done successfully: 
     ```     
-	  systemctl start zimbra
+	systemctl start zimbra
     ```
   - After Checking the zimbra service status stop the zimbra service again.
     ```
-	  systemctl stop zimbra
+	systemctl stop zimbra
     ```
-	 
-  On Secondary server:-
-  ---
+
+#### On Secondary server:
+  
   - Stop Zimbra services.
   - After backup change the zimbra directory name.
     - example :- `/opt/zimbraolddr` {New name of the Zimbra directory}
@@ -194,8 +188,7 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
 ## EXPRESSCLUSTER setup  
 - Let us consider the following 2 node cluster and try to understand it.
 
-  Cluster Information:-
-  ---
+  Cluster Information
   ||Node1(Active)|Node2(Stanby)|
   |---|---|---|
   |Server Name|Server1|Server2|
@@ -203,8 +196,7 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
   |cluster partition|/dev/sdb1|/dev/sdb1|
   |data partition|/dev/sdc2|/dev/sdc2|
     
-  Failover Group Information:-
-  ---
+  Failover Group Information
   |Parameter|Value|
   |---|---|
   |Name|Failover1|
@@ -220,8 +212,7 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
      
 - After you add failver group and execute apply the configuration file, you start failover group by server1. 
 
-  Note:-
-  ---
+  **Note:**
   - Execute the initial mirror construction 
     - Specify if an initial mirror configuration is constructed when constructing a cluster
       - When the check box is selected:
@@ -262,10 +253,7 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
 #*              start.sh               *
 #***************************************
 
-#ulimit -s unlimited
-
 systemctl start zimbra
-
 exit $?
 ```
 ### stop.sh
@@ -276,9 +264,6 @@ exit $?
 #*              start.sh               *
 #***************************************
 
-#ulimit -s unlimited
-
 systemctl stop zimbra
-
 exit $?
 ```
