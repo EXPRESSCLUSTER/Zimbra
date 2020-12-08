@@ -48,11 +48,11 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
   ---
   - Download “Zimbra collaboration suite” package. Open the web browser and go to the following URL. Choose Zimbra version.
     - [this site](https://www.zimbra.com/try/zimbra-collaboration-open-source/)
-                              
-			      OR
+                             
+	OR
 			      
   - Download the package directly by below mentioned link.
-     - [this link](wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.RHEL7_64.20190918004220.tgz)  
+     - [this link](https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.RHEL7_64.20190918004220.tgz)  
       
   - Copy the package to the `/tmp` directory.
   - Extract the installation files from the `.tar` file. Right click and click on Extract here.
