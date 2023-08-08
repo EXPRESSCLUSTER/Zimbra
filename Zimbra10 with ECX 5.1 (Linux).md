@@ -1,4 +1,4 @@
-./samplenew.sh# Zimbra with EXPRESSCLUSTER X on Linux
+./samplenew.sh# Zimbra with EXPRESSCLUSTER X on Linux.
 
 ## About this guide
 This guide describes how to setup Zimbra with EXPRESSCLUSTER X. 
@@ -105,10 +105,10 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
   ```
 
 
-### 3. Zimbra Existing installation:
+### 3. Zimbra Existing Installation:
 In this case Zimbra is already installed in default disk and have to move data on the mirror partition
 
-#### On Primary server: 
+#### On Primary Server: 
   - Firstly stop the zimbra service on server. 
     ```
     systemctl stop zimbra
@@ -148,7 +148,7 @@ In this case Zimbra is already installed in default disk and have to move data o
 	systemctl stop zimbra
     ```
 	 
-  #### On Secondary server:
+  #### On Secondary Server:
   
   - Stop Zimbra services.
   - After backup change the zimbra directory name.
@@ -191,7 +191,7 @@ In this case Zimbra is already installed in default disk and have to move data o
 - Start the Zimbra service & verify the Zimbra.
  
 
-## EXPRESSCLUSTER setup  
+## EXPRESSCLUSTER Setup  
 - Let us consider the following 2 node cluster and try to understand it.
 
   Cluster Information
@@ -250,7 +250,7 @@ In this case Zimbra is already installed in default disk and have to move data o
 1. Start the exec resource
 
 
-## Sample scripts
+## Sample Scripts
 ### start.sh
 <a id="startsh"></a>
 ```bat
