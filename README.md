@@ -1,1 +1,1 @@
-# Zimbra clustering with ECX 4.2
+# Zimbra clustering with ECX 5.1
