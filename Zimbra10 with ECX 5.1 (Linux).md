@@ -1,4 +1,4 @@
-./samplenew.sh# Zimbra with EXPRESSCLUSTER X on Linux
+./samplenew.sh# Zimbra with EXPRESSCLUSTER X on Linux.
 
 ## About this guide
 This guide describes how to setup Zimbra with EXPRESSCLUSTER X. 
