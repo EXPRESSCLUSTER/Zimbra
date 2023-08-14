@@ -43,7 +43,7 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
 ### 1. Install Zimbra (New Installation) on the both servers. 
 - For the detailed information of Zimbra, please refer to [this site](https://zimbra.github.io/documentation/zimbra-10/single-server-install.html#Overview_of_Installation_Process)
     
-  Installation Steps:-
+  Installation Steps:
   ---
    Download “Zimbra collaboration suite” package. Open the web browser and go to [this site](https://zimbra.github.io/documentation/zimbra-10/single-server-install.html#Downloading_the_Zimbra_Software).
                              
@@ -74,7 +74,7 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
   - Press Enter to complete the configuration.
 
 
-  NOTE - 
+  Note:
   ---
   - If you are doing Zimbra fresh Installation make sure you should be install Zimbra on mirror disk partition.
   - After Zimbra Installation you need to take backup of zimbra files as below steps.
