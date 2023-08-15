@@ -1,4 +1,4 @@
-Zimbra with EXPRESSCLUSTER X on Linux.
+# Zimbra with EXPRESSCLUSTER X on Linux.
 
 ## About this guide
 This guide describes how to setup Zimbra with EXPRESSCLUSTER X. 
