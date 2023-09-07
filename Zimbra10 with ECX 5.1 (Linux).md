@@ -20,10 +20,10 @@ Prepare Zimbra HA/DR By using EXPRESSCLUSTER X.
 ## Cluster Configurations
 - Group resources
   - exec resource
-  - floting IP resource
+  - floating IP resource
   - mirror disk resource
-- Monitor rerources
-  - floting IP monitor resource
+- Monitor resources
+  - floating IP monitor resource
   - mirror disk connect monitor resource
   - mirror disk monitor resource
   - exec monitor resource
@@ -196,10 +196,10 @@ In this case Zimbra is already installed in default disk and have to move data o
 
   Cluster Information
   ---
-  ||Node1(Active)|Node2(Stanby)|
+  ||Node1(Active)|Node2(Standby)|
   |---|---|---|
   |Server Name|Server1|Server2|
-  |IPaddress|10.0.7.140|10.0.7.141|  
+  |IP address|10.0.7.140|10.0.7.141|  
   |cluster partition|/dev/sdc1|/dev/sdc1|
   |data partition|/dev/sdb1|/dev/sdb1|
     
@@ -218,7 +218,7 @@ In this case Zimbra is already installed in default disk and have to move data o
       - Mirror disk resource  
   - If you want to know how to add resource, please refer to [this site](https://github.com/EXPRESSCLUSTER/BasicCluster/blob/master/X41/Lin/2nodesMirror_Lin.md#how-to-setup-basic-2-nodes-mirror-cluster-on-linux) 
      
-- After you add failver group and execute apply the configuration file, you start failover group by server1. 
+- After you add failover group and execute apply the configuration file, you start failover group by server1. 
 
   **Note:**
   ---
@@ -232,7 +232,7 @@ In this case Zimbra is already installed in default disk and have to move data o
 	
   - Execute initial mkfs
     - Specify if an initial mkfs is constructed when constructing a cluster. This option can be set only if the initial mirror is being constructed. 
-    - In the case of hybrid disk resources, the clphdinit command behavior is executed instead of initial mkfs behavior upon cluster construction
+    - In the case of hybrid disk resources, the `clphdinit` command behavior is executed instead of initial mkfs behavior upon cluster construction
     - When the check box is selected:
       - An initial mkfs will be run
     - When the check box is not selected: 
